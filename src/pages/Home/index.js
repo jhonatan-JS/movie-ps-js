@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import MovieRow from './components/MovieRow';
-import FeaturedMovie from './components/FeaturedMovie';
+import MovieRow from '../../components/MovieRow';
+import FeaturedMovie from '../../components/FeaturedMovie';
 
-import Tmdb from './Tmdb';
+import Tmdb from '../../Tmdb';
 
-import './App.css';
+import './styles.css';
 
 
 export default () => {
