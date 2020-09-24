@@ -8,39 +8,41 @@ import Tmdb from '../../Tmdb';
 import './styles.css';
 
 
-export default () => {
-  const [movieList, setMovieList] = useState([]);
-  const [featuredData, setFeaturedData] = useState(null);
+export default function Home() {
 
-  useEffect(() => {
-    const loadAll = async () => {
-      let list = await Tmdb.getHomeList()
-      setMovieList(list);
+    const [movieList, setMovieList] = useState([]);
+    const [featuredData, setFeaturedData] = useState(null);
 
-      let originals = list.filter(i => i.slug === 'originals');
-      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length -1 ))
-      let chosen = originals[0].items.results[randomChosen];
-      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
+    useEffect(() => {
+      const loadAll = async () => {
+        let list = await Tmdb.getHomeList()
+        setMovieList(list);
 
-      setFeaturedData(chosenInfo);
-    }
+        let originals = list.filter(i => i.slug === 'originals');
+        let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length -1 ))
+        let chosen = originals[0].items.results[randomChosen];
+        let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
 
-    loadAll();
-  }, [])
+        setFeaturedData(chosenInfo);
+      }
 
-  return (
-      <div className="page">
+      loadAll();
+    }, [])
 
-        {featuredData &&
-        <FeaturedMovie item={featuredData}/>
-        }
+    return (
+      <div className="home-container">
+        <div className="page">
 
-        <section className="lists">
-          {movieList.map((item, key) => (
-              <MovieRow key={key} title={item.title} items={item.items}/>
-          ))}
-        </section>
+          {featuredData &&
+          <FeaturedMovie item={featuredData}/>
+          }
+
+          <section className="lists">
+            {movieList.map((item, key) => (
+                <MovieRow key={key} title={item.title} items={item.items}/>
+            ))}
+          </section>
+        </div>
       </div>
-
-  );
+    );
 }

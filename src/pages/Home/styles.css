@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+.home-container {
   background-color: #111;
   color: #fff;
   margin: 0;
