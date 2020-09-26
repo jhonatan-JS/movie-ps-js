@@ -32,8 +32,6 @@ export default function Home() {
 
     return (
       <div className="home-container">
-        <div className="page">
-
           {featuredData &&
           <FeaturedMovie item={featuredData}/>
           }
@@ -44,6 +42,5 @@ export default function Home() {
             ))}
           </section>
         </div>
-      </div>
     );
 }
