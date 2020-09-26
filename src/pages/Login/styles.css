@@ -9,3 +9,15 @@
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+.form-login {
+  width: 20%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login input + input {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

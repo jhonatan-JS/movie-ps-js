@@ -5,6 +5,7 @@ import FeaturedMovie from '../../components/FeaturedMovie';
 
 import Tmdb from '../../services/Tmdb';
 
+import '../global.css'
 import './styles.css';
 
 

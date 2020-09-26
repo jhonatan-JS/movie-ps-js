@@ -1,20 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
-// import FeaturedBackground from '../../components/FeaturedBackground';
+import api from '../../services/api';
 
+import '../global.css'
 import './styles.css'
 
-export default function login() {
+export default function Login() {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+
+  const history = useHistory();
+
+  async function handkeLogin(e) {
+    e.preventDefault();
+
+    await api.post('sessions', nome, email);
+    history.push('/home');
+  }
+
   return (
     <div className="login-container" >
         <section className="form">
-            <form>
+            <form onSubmit={handkeLogin} className="form-login">
               <h1>Login</h1>
 
-              <input placeholder="nome" type="text"/>
-              <input placeholder="Email" type="text"/>
+              <input
+              placeholder="nome"
+              type="text"
+              value={nome}
+              onChange={e => setNome(e.target.value)}
+              />
+
+              <input
+              placeholder="Email"
+              type="text"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              />
+
               <button type="submit">Entrar</button>
 
               <Link className="back-link" to="/register">
