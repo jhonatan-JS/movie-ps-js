@@ -25,8 +25,6 @@ export default function Register() {
       dataNascimento
     }
 
-    console.log(data);
-
     try {
       await api.post('account', data);
 

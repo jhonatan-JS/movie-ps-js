@@ -16,8 +16,21 @@ export default function Login() {
   async function handkeLogin(e) {
     e.preventDefault();
 
-    await api.post('sessions', nome, email);
-    history.push('/home');
+    try {
+
+      const params = {
+        nome: nome,
+        email: email
+      }
+
+      await api.post('sessions', params);
+      history.push('/home');
+
+      alert('succsses')
+    } catch (error) {
+      alert('error')
+      console.log(error)
+    }
   }
 
   return (
