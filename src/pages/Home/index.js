@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import MovieRow from '../../components/MovieRow';
 import FeaturedMovie from '../../components/FeaturedMovie';
+import Header from '../../components/Header';
 
 import Tmdb from '../../services/Tmdb';
+
+import Logo from '../../assets/logo.svg';
 
 import '../global.css'
 import './styles.css';
@@ -13,6 +16,7 @@ export default function Home() {
 
     const [movieList, setMovieList] = useState([]);
     const [featuredData, setFeaturedData] = useState(null);
+    const [blackHeader, setBlackHeader] = useState(false);
 
     useEffect(() => {
       const loadAll = async () => {
@@ -28,10 +32,29 @@ export default function Home() {
       }
 
       loadAll();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+      const scrollListener = () => {
+        if(window.scrollY > 10) {
+          setBlackHeader(true);
+        } else {
+          setBlackHeader(false);
+        }
+      }
+
+      window.addEventListener('scroll', scrollListener);
+
+      return () => {
+        window.removeEventListener('scroll', scrollListener);
+      }
+    }, []);
 
     return (
-      <div className="home-container">
+      <div className="home-container"
+        >
+          <Header black={blackHeader} />
+
           {featuredData &&
           <FeaturedMovie item={featuredData}/>
           }
@@ -41,6 +64,10 @@ export default function Home() {
                 <MovieRow key={key} title={item.title} items={item.items}/>
             ))}
           </section>
+
+          <footer>
+          <img src={ Logo } alt="movies-js"/>
+          </footer>
         </div>
     );
 }
