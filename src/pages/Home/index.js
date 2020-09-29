@@ -56,12 +56,12 @@ export default function Home() {
           <Header black={blackHeader} />
 
           {featuredData &&
-          <FeaturedMovie item={featuredData}/>
+          <FeaturedMovie item={featuredData} />
           }
 
           <section className="lists">
             {movieList.map((item, key) => (
-                <MovieRow key={key} title={item.title} items={item.items}/>
+                <MovieRow key={key} title={item.title} items={item.items} />
             ))}
           </section>
 
