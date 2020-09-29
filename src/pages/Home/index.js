@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Tmdb from '../../services/Tmdb';
 
 import Logo from '../../assets/logo.svg';
+import Loading from '../../assets/loading.gif';
 
 import '../global.css'
 import './styles.css';
@@ -68,6 +69,12 @@ export default function Home() {
           <footer>
           <img src={ Logo } alt="movies-js"/>
           </footer>
+
+          {movieList.length <= 0 &&
+            <div className="loading">
+              <img src={Loading} alt="loading" />
+            </div>
+          }
         </div>
     );
 }
