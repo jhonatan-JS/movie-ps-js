@@ -22,13 +22,12 @@ export default function Login() {
         nome: nome,
         email: email
       }
-
       await api.post('sessions', params);
+
       history.push('/home');
 
     } catch (error) {
-      alert('error')
-      console.log(error)
+      alert('Erro ao fazer login, tente novamente');
     }
   }
 
