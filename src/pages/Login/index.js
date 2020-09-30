@@ -26,7 +26,6 @@ export default function Login() {
       await api.post('sessions', params);
       history.push('/home');
 
-      alert('succsses')
     } catch (error) {
       alert('error')
       console.log(error)
