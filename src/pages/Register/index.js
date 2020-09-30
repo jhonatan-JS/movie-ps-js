@@ -17,46 +17,46 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
-    const account = await api.get('account');
 
-    const data = {
-      nome,
-      email,
-      senha,
-      dataNascimento
-    }
+    try {
+      const account = await api.get('account');
 
-    if(!data.nome) {
-      alert('Nome obrigatório');
-      return;
-    } else if (!data.email) {
-      alert('Email obrigatório');
-      return;
-    } else if(!data.senha) {
-      alert('Senha obritória');
-      return
-    } else if(!data.dataNascimento) {
-      alert('Data obrigatória');
-      return;
-    }
+      const data = {
+        nome,
+        email,
+        senha,
+        dataNascimento
+      };
+
+      if(!data.nome) {
+        alert('Nome obrigatório');
+        return;
+      } else if (!data.email) {
+        alert('Email obrigatório');
+        return;
+      } else if(!data.senha) {
+        alert('Senha obritória');
+        return
+      } else if(!data.dataNascimento) {
+        alert('Data obrigatória');
+        return;
+      }
 
       const emailJaCadastrado = account.data.some(item => item.email === email);
         if(emailJaCadastrado) {
           alert('Email já cadastrado');
           return;
         }
-    try {
+
       await api.post('account', data);
+
+      console.log(data);
 
       history.push('/');
 
       alert('Cadastro concluido com secesso');
     } catch (error) {
-
       alert('Erro no cadastro, tente novamente');
-
-      console.log(error);
-
     }
   }
 

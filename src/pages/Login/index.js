@@ -25,7 +25,6 @@ export default function Login() {
       await api.post('sessions', params);
 
       history.push('/home');
-
     } catch (error) {
       alert('Erro ao fazer login, tente novamente');
     }
