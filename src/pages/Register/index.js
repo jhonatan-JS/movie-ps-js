@@ -11,7 +11,7 @@ export default function Register() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [dataNascimento, setdataNascimento] = useState('');
+  const [dataDeNascimento, setdataDeNascimento] = useState('');
 
   const history = useHistory();
 
@@ -25,7 +25,7 @@ export default function Register() {
         nome,
         email,
         senha,
-        dataNascimento
+        dataDeNascimento
       };
 
       if(!data.nome) {
@@ -37,7 +37,7 @@ export default function Register() {
       } else if(!data.senha) {
         alert('Senha obritória');
         return
-      } else if(!data.dataNascimento) {
+      } else if(!data.dataDeNascimento) {
         alert('Data obrigatória');
         return;
       }
@@ -81,8 +81,8 @@ export default function Register() {
           />
 
           <input placeholder="Data de nascimento DD/MM/YYYY" type="Data"
-          value={dataNascimento}
-          onChange={e => setdataNascimento(e.target.value)}
+          value={dataDeNascimento}
+          onChange={e => setdataDeNascimento(e.target.value)}
           />
 
           <button type="submit">cadastrar</button>

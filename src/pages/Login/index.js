@@ -17,11 +17,19 @@ export default function Login() {
     e.preventDefault();
 
     try {
+      const account = await api.get('account');
 
       const params = {
         nome: nome,
         email: email
-      }
+      };
+
+      const validaUser = account.data.some(item => item.nome === nome);
+      if(!validaUser) {
+        alert('informe um nome valido');
+        return;
+      };
+
       await api.post('sessions', params);
 
       history.push('/home');
