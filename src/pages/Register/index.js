@@ -20,7 +20,6 @@ export default function Register() {
 
     try {
       const account = await api.get('account');
-
       const data = {
         nome,
         email,
