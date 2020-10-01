@@ -50,10 +50,7 @@ export default function Register() {
 
       await api.post('account', data);
 
-      console.log(data);
-
       history.push('/');
-
       alert('Cadastro concluido com secesso');
     } catch (error) {
       alert('Erro no cadastro, tente novamente');
