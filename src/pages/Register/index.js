@@ -57,7 +57,7 @@ export default function Register() {
   }
 
   return (
-    <div className="login-container" >
+    <div className="register-container" >
     <section className="form">
       <h1>Cadastro</h1>
         <form className="form-register" onSubmit={handleRegister}>
