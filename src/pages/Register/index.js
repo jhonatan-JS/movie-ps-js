@@ -58,7 +58,7 @@ export default function Register() {
 
   return (
     <div className="register-container" >
-    <section className="form">
+    <section>
       <h1>Cadastro</h1>
         <form className="form-register" onSubmit={handleRegister}>
           <input placeholder="Nome" type="text"
