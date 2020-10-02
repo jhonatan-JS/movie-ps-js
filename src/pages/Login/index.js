@@ -39,33 +39,36 @@ export default function Login() {
   }
 
   return (
-    <div className="login-container" >
-        <section className="form">
-            <form onSubmit={handkeLogin} className="form-login">
-              <h1>Login</h1>
+    <>
+      <div className="background"></div>
+      <div className="login-container" >
+          <section>
+              <form onSubmit={handkeLogin} className="form-login">
+                <h1>Login</h1>
 
-              <input
-              placeholder="nome"
-              type="text"
-              value={nome}
-              onChange={e => setNome(e.target.value)}
-              />
+                <input
+                placeholder="nome"
+                type="text"
+                value={nome}
+                onChange={e => setNome(e.target.value)}
+                />
 
-              <input
-              placeholder="Email"
-              type="text"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              />
+                <input
+                placeholder="Email"
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                />
 
-              <button type="submit">Entrar</button>
+                <button type="submit">Entrar</button>
 
-              <Link className="back-link" to="/register">
-                <FiLogIn size={16} color="#e02041"/>
-                Não tenho cadastro
-              </Link>
-            </form>
-          </section>
-    </div>
+                <Link className="back-link" to="/register">
+                  <FiLogIn size={16} color="#0eb551"/>
+                  Não tenho cadastro
+                </Link>
+              </form>
+            </section>
+      </div>
+    </>
   )
 }

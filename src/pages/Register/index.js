@@ -57,38 +57,41 @@ export default function Register() {
   }
 
   return (
-    <div className="register-container" >
-    <section>
-      <h1>Cadastro</h1>
-        <form className="form-register" onSubmit={handleRegister}>
-          <input placeholder="Nome" type="text"
-          value={nome}
-          onChange={e => setNome(e.target.value)}
-          />
+    <>
+      <div className="background"></div>
+      <div className="register-container">
+        <section>
+          <h1>Cadastro</h1>
+            <form className="form-register" onSubmit={handleRegister}>
+              <input placeholder="Nome" type="text"
+              value={nome}
+              onChange={e => setNome(e.target.value)}
+              />
 
-          <input placeholder="Email" type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          />
+              <input placeholder="Email" type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              />
 
-          <input placeholder="senha" type="password"
-          value={senha}
-          onChange={e => setSenha(e.target.value)}
-          />
+              <input placeholder="senha" type="password"
+              value={senha}
+              onChange={e => setSenha(e.target.value)}
+              />
 
-          <input placeholder="Data de nascimento DD/MM/YYYY" type="Data"
-          value={dataDeNascimento}
-          onChange={e => setdataDeNascimento(e.target.value)}
-          />
+              <input placeholder="Data de nascimento DD/MM/YYYY" type="Data"
+              value={dataDeNascimento}
+              onChange={e => setdataDeNascimento(e.target.value)}
+              />
 
-          <button type="submit">cadastrar</button>
-        </form>
+              <button type="submit">cadastrar</button>
+            </form>
 
-        <Link className="back-link" to="/">
-            <FiArrowLeft size={16} color="#e02041"/>
-            Voltar para login
-          </Link>
-      </section>
-</div>
+            <Link className="back-link" to="/">
+              <FiArrowLeft size={16} color="#0eb551"/>
+              Voltar para login
+            </Link>
+        </section>
+        </div>
+    </>
   )
 }
